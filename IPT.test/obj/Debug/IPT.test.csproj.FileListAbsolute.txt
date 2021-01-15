@@ -1,0 +1,12 @@
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\IPT.test.exe.config
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\IPT.test.exe
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\IPT.test.pdb
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\IPT.assigmnt.dll
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\EntityFramework.dll
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\IPT.assigmnt.pdb
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\EntityFramework.xml
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\obj\Debug\IPT.test.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\obj\Debug\IPT.test.exe
+C:\Users\HP\Documents\Visual Studio 2015\Projects\IPT.assigmnt\IPT.test\obj\Debug\IPT.test.pdb

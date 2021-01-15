@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="newdataModelStoreContainer" CdmEntityContainer="newdataEntities">
+    <EntitySetMapping Name="departments">
+      <EntityTypeMapping TypeName="newdataModel.department">
+        <MappingFragment StoreEntitySet="departments">
+          <ScalarProperty Name="department_no" ColumnName="department_no" />
+          <ScalarProperty Name="department_name" ColumnName="department_name" />
+          <ScalarProperty Name="emp_no" ColumnName="emp_no" />
+          <ScalarProperty Name="employe_experience" ColumnName="employe_experience" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="newdataModel.employee">
+        <MappingFragment StoreEntitySet="employees">
+          <ScalarProperty Name="emp_no" ColumnName="emp_no" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="hire_date" ColumnName="hire_date" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="experiences">
+      <EntityTypeMapping TypeName="newdataModel.experience">
+        <MappingFragment StoreEntitySet="experience">
+          <ScalarProperty Name="employe_experience" ColumnName="employe_experience" />
+          <ScalarProperty Name="employe_level" ColumnName="employe_level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salaries">
+      <EntityTypeMapping TypeName="newdataModel.salary">
+        <MappingFragment StoreEntitySet="salaries">
+          <ScalarProperty Name="emp_no" ColumnName="emp_no" />
+          <ScalarProperty Name="salary1" ColumnName="salary" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="titles">
+      <EntityTypeMapping TypeName="newdataModel.title">
+        <MappingFragment StoreEntitySet="title">
+          <ScalarProperty Name="emp_no" ColumnName="emp_no" />
+          <ScalarProperty Name="title1" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

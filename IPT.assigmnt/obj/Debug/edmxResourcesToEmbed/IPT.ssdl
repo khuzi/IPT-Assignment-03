@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="newdataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="departments">
+    <Key>
+      <PropertyRef Name="department_no" />
+    </Key>
+    <Property Name="department_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="department_name" Type="varchar" MaxLength="50" />
+    <Property Name="emp_no" Type="int" Nullable="false" />
+    <Property Name="employe_experience" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="employees">
+    <Key>
+      <PropertyRef Name="emp_no" />
+    </Key>
+    <Property Name="emp_no" Type="int" Nullable="false" />
+    <Property Name="birth_date" Type="varchar" MaxLength="15" />
+    <Property Name="first_name" Type="varchar" MaxLength="10" />
+    <Property Name="last_name" Type="varchar" MaxLength="10" />
+    <Property Name="gender" Type="int" />
+    <Property Name="hire_date" Type="varchar" MaxLength="15" />
+    <Property Name="contact" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="experience">
+    <Key>
+      <PropertyRef Name="employe_experience" />
+    </Key>
+    <Property Name="employe_experience" Type="int" Nullable="false" />
+    <Property Name="employe_level" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="salaries">
+    <Key>
+      <PropertyRef Name="emp_no" />
+    </Key>
+    <Property Name="emp_no" Type="int" Nullable="false" />
+    <Property Name="salary" Type="int" />
+    <Property Name="from_date" Type="varchar" MaxLength="15" />
+    <Property Name="to_date" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="title">
+    <Key>
+      <PropertyRef Name="emp_no" />
+    </Key>
+    <Property Name="emp_no" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <Association Name="FK_departments_departments">
+    <End Role="experience" Type="Self.experience" Multiplicity="1" />
+    <End Role="departments" Type="Self.departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="experience">
+        <PropertyRef Name="employe_experience" />
+      </Principal>
+      <Dependent Role="departments">
+        <PropertyRef Name="employe_experience" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_departments_Employees">
+    <End Role="employees" Type="Self.employees" Multiplicity="1" />
+    <End Role="departments" Type="Self.departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employees">
+        <PropertyRef Name="emp_no" />
+      </Principal>
+      <Dependent Role="departments">
+        <PropertyRef Name="emp_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="newdataModelStoreContainer">
+    <EntitySet Name="departments" EntityType="Self.departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="experience" EntityType="Self.experience" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="salaries" EntityType="Self.salaries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="title" EntityType="Self.title" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_departments_departments" Association="Self.FK_departments_departments">
+      <End Role="experience" EntitySet="experience" />
+      <End Role="departments" EntitySet="departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_departments_Employees" Association="Self.FK_departments_Employees">
+      <End Role="employees" EntitySet="employees" />
+      <End Role="departments" EntitySet="departments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="newdataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="department_no" />
+    </Key>
+    <Property Name="department_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="emp_no" Type="Int32" Nullable="false" />
+    <Property Name="employe_experience" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="experience" Relationship="Self.FK_departments_departments" FromRole="departments" ToRole="experience" />
+    <NavigationProperty Name="employee" Relationship="Self.FK_departments_Employees" FromRole="departments" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="emp_no" />
+    </Key>
+    <Property Name="emp_no" Type="Int32" Nullable="false" />
+    <Property Name="birth_date" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="first_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="Int32" />
+    <Property Name="hire_date" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="contact" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="departments" Relationship="Self.FK_departments_Employees" FromRole="employees" ToRole="departments" />
+  </EntityType>
+  <EntityType Name="experience">
+    <Key>
+      <PropertyRef Name="employe_experience" />
+    </Key>
+    <Property Name="employe_experience" Type="Int32" Nullable="false" />
+    <Property Name="employe_level" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="departments" Relationship="Self.FK_departments_departments" FromRole="experience" ToRole="departments" />
+  </EntityType>
+  <EntityType Name="salary">
+    <Key>
+      <PropertyRef Name="emp_no" />
+    </Key>
+    <Property Name="emp_no" Type="Int32" Nullable="false" />
+    <Property Name="salary1" Type="Int32" />
+    <Property Name="from_date" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="to_date" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="title">
+    <Key>
+      <PropertyRef Name="emp_no" />
+    </Key>
+    <Property Name="emp_no" Type="Int32" Nullable="false" />
+    <Property Name="title1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_departments_departments">
+    <End Role="experience" Type="Self.experience" Multiplicity="1" />
+    <End Role="departments" Type="Self.department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="experience">
+        <PropertyRef Name="employe_experience" />
+      </Principal>
+      <Dependent Role="departments">
+        <PropertyRef Name="employe_experience" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_departments_Employees">
+    <End Role="employees" Type="Self.employee" Multiplicity="1" />
+    <End Role="departments" Type="Self.department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employees">
+        <PropertyRef Name="emp_no" />
+      </Principal>
+      <Dependent Role="departments">
+        <PropertyRef Name="emp_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="newdataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="departments" EntityType="Self.department" />
+    <EntitySet Name="employees" EntityType="Self.employee" />
+    <EntitySet Name="experiences" EntityType="Self.experience" />
+    <EntitySet Name="salaries" EntityType="Self.salary" />
+    <EntitySet Name="titles" EntityType="Self.title" />
+    <AssociationSet Name="FK_departments_departments" Association="Self.FK_departments_departments">
+      <End Role="experience" EntitySet="experiences" />
+      <End Role="departments" EntitySet="departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_departments_Employees" Association="Self.FK_departments_Employees">
+      <End Role="employees" EntitySet="employees" />
+      <End Role="departments" EntitySet="departments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
